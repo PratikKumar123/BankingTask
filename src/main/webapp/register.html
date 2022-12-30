@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register here</title>
+<link rel="stylesheet" href="./Style2.css">
+<script src="https://kit.fontawesome.com/ea78c2f3b9.js"
+	crossorigin="anonymous"></script>
+<script>
+	function validateForm() {
+		var email = document.getElementById("email").value;
+		if (email.length < 1) {
+			alert("email must be filled out");
+			return false;
+		}
+
+		if (pwd.length < 1) {
+			alert("password must be filled out");
+			return false;
+		}
+		var password = document.getElementById("pwd").value;
+		
+        var confirmPassword = document.getElementById("pwdc").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+	}
+
+</script>
+</head>
+
+<body>
+	<div class="main-container">
+		<div class="text-container">
+
+			<div class="box">
+				<h1>todays Heading</h1>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio
+				consequatur pe oafoebgf gejogioegnbiog goheiogfneoi
+			</div>
+		</div>
+
+		<div class="container">
+			<h2>REGISTER HERE !!</h2>
+
+			<div class="fields">
+				<form name="myForm" action="register"
+					onsubmit=" return validateForm()" method="post">
+					<i class="fa-solid fa-signature" class="icon"
+						style="font-size: 30px; color: rgb(20, 211, 211); margin-left: 16px;"></i>
+
+					<input type="text" name="name" class="input" id="eid"
+						placeholder=" Enter your Name" autocomplete="off"> <br>
+					<br>  <i class="fa-solid fa-envelope-open-text"
+						class="icon"
+						style="font-size: 30px; color: rgb(20, 211, 211); margin-left: 16px;"></i>
+					<input type="email" name="email" class="input" id="email"
+						placeholder=" Enter your Mail" autocomplete="off"> <br>
+					<br> <i class="fa-solid fa-phone" class="icon"
+						style="font-size: 30px; color: rgb(20, 211, 211); margin-left: 20px;"></i>
+
+					<input type="number" name="phone" class="input" id="number"
+						placeholder="Enter Phone no"   autocomplete="off"> <br>
+						<br>
+					<i class="fa-solid fa-lock" class="icon"
+						style="font-size: 30px; color: rgb(20, 211, 211); margin-left: 20px;"></i>
+						
+					<input type="password" name="pwd" class="input" id="pwd"
+						placeholder="Enter password" autocomplete="off"> <i
+						class="fa-solid fa-eye-slash" style="margin-left: 1rem;"></i> <br>
+
+					<br> <i class="fa-solid fa-lock" class="icon"
+						style="font-size: 30px; color: rgb(20, 211, 211); margin-left: 20px;"></i>
+
+					<input type="password" name="cpwd" class="input" id="pwdc"
+						placeholder="Enter confirm password" autocomplete="off"> <i
+						class="fa-solid fa-eye-slash" style="margin-left: 1rem;"></i> <br>
+
+					<br> <label> <span class="login"><a
+							href="login.html">Login</a></span>
+					</label> <label> <span class="psw"><a href="#"
+							class="forgot">Forgot Password?</a></span>
+					</label>
+
+
+					<button class="btn" type="submit">Sign up</button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

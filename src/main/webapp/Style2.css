@@ -1,0 +1,77 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+* {
+    font-weight: 900;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: capitalize;
+}
+
+body{
+    background-image: url("./1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h2 {
+    text-align: center;
+
+    margin-bottom: 2.5rem;
+}
+ h1{
+
+    color: brown;
+    text-align: center;
+ }
+#eid ,#password{
+    background: transparent;
+    border: none;
+}
+.container{
+    position: absolute;
+    height: 300px;
+    width: 400px;
+    margin-left: 54%;
+    margin-top: 5%;
+}
+.input{
+    margin-left: .2rem;
+    margin-bottom: .2rem;
+    padding: 7px;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1rem;
+}
+.btn{
+    background-color: rgb(20, 211, 211);
+    color: white;
+    padding: 9px;
+    width: 300px;
+    margin-left: 11%;
+    margin-top: 5%;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 1rem;
+    border: 1px solid rgb(20, 211, 211);
+    border-radius: 20px;
+}
+.text-container{
+    margin-left: 4%;
+    height: 200px;
+    width: 600px;
+    margin-top: 9%;
+
+}
+
+.main-container{
+    display: flex;
+    justify-content: space-between;
+}
+.remember{
+    margin-top: 4rem;
+    margin-left: 20px;
+}
+.forgot{
+    color: rgb(0, 0, 0);
+    margin-left: 4rem;
+}
