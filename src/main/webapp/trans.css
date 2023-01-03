@@ -7,33 +7,13 @@
     text-transform: capitalize;
 }
 
-body{
-    background-image: url("./1.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
+h2{
+	color: brown;
 }
 
-h2 {
-    text-align: center;
-
-    margin-bottom: 2.5rem;
-    color: brown;
-}
- h1{
-
-    color: brown;
-    text-align: center;
- }
-#eid ,#password{
-    background: transparent;
-    border: none;
-}
 .container{
-    position: absolute;
-    height: 300px;
-    width: 400px;
-    margin-left: 54%;
-    margin-top: 5%;
+    
+    display: flex;
 }
 .input{
     margin-left: .2rem;
@@ -64,15 +44,3 @@ h2 {
 
 }
 
-.main-container{
-    display: flex;
-    justify-content: space-between;
-}
-.remember{
-    margin-top: 4rem;
-    margin-left: 20px;
-}
-.forgot{
-    color: rgb(0, 0, 0);
-    margin-left: 4rem;
-}

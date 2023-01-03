@@ -4,17 +4,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class Login extends HttpServlet {
@@ -35,21 +34,21 @@ public class Login extends HttpServlet {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dname, dpass);
-			Cookie ck=new Cookie("uname",lname); 
-		    response.addCookie(ck);
 			Statement s = con.createStatement();
 			ResultSet r = s.executeQuery("select userMail,pass from register");
 			while (r.next()) {
 				
 				if (email.equalsIgnoreCase(r.getString("userMail")) && pass.equals(r.getString("pass")))
 				{
-					
+					HttpSession session=request.getSession();  
+			        session.setAttribute("name",lname);  
 					RequestDispatcher r1 = request.getRequestDispatcher("Welcome");
 					r1.forward(request, response);
 					break;
 				}
+			
 			}
-			out.println("Error !!");
+			out.println("<a class='btn' href='login.html'>Error while login in < please Go back</a>");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

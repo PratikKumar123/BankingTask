@@ -12,18 +12,18 @@
 <script>
 	function validateForm() {
 		var email = document.getElementById("email").value;
+		var password = document.getElementById("pwd").value;
+        var confirmPassword = document.getElementById("pwdc").value;
 		if (email.length < 1) {
 			alert("email must be filled out");
 			return false;
 		}
 
-		if (pwd.length < 1) {
+		if (password.length < 1) {
 			alert("password must be filled out");
 			return false;
 		}
-		var password = document.getElementById("pwd").value;
 		
-        var confirmPassword = document.getElementById("pwdc").value;
         if (password != confirmPassword) {
             alert("Passwords do not match.");
             return false;

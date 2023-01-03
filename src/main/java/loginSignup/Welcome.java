@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Welcome
@@ -23,16 +24,20 @@ public class Welcome extends HttpServlet {
 		
 		    response.setContentType("text/html");  
 		    PrintWriter out = response.getWriter();  
-		      
-		    Cookie ck[]=request.getCookies();  
-		    out.print("<Center><h1>Welcome , "+ck[0].getValue()+"</h1></Center>"); 
+		    HttpSession session=request.getSession(false);
 		    
+		    if(session!=null){  
+		    String name=(String)session.getAttribute("name"); 
+		    out.print("<Center><h1>Welcome , "+name+"</h1></Center>");
 		    out.println("<hr>");
-		    
 		    RequestDispatcher r = request.getRequestDispatcher("BankingDetails.html");
 		    r.include(request, response);
 
-		    
+		    }
+		    else {
+		    	out.print("Please login first");  
+	            request.getRequestDispatcher("login.html").include(request, response);  
+			}
 
 	}
 

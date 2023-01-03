@@ -1,5 +1,7 @@
 package loginSignup;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -14,6 +16,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class depositOperation
@@ -30,16 +33,18 @@ public class depositOperation extends HttpServlet {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dname, dpass);
-
 			String id1 = request.getParameter("uid");
 			String accNo1 = request.getParameter("uacc");
 			String depo1 = request.getParameter("udeposit");
-			
+			response.setContentType("text/html"); 
 			PreparedStatement p = con.prepareStatement("select accountNo from bankdetails where Id = ?");
 			p.setString(1, id1);
 			
 			ResultSet r1 = p.executeQuery();
-			Cookie ck[]=request.getCookies();  
+			HttpSession session=request.getSession(false);
+			String name=(String)session.getAttribute("name");
+			
+			   
 			while (r1.next()) {
 				if (accNo1.equals(r1.getString("accountNo"))) {
 					
@@ -49,13 +54,32 @@ public class depositOperation extends HttpServlet {
 					int i = psd.executeUpdate();
 					
 					if(i==1){
+						File file = new File("C:/new_file/deposit.txt");
+						FileWriter fw = new FileWriter(file,true);
 						
 						out.println("<h1>\n Balance deposited succesfully <h1>");
-						out.println("Deposited balance of  "+ck[0].getValue()+" is > "+ depo1);
+						out.println("<h2>\n"+name+"</h2>");
+						out.println("<h1>\n you have deposited money = "+ depo1 +"<h1>");
+						out.println("<h1>acount id is "+id1+"<h1>");
+						out.println("<h1>acount No  is "+accNo1+"<h1>");
+						
+						fw.write("\n Balance deposited succesfully");
+						fw.write("\n"+name);
+						fw.write("\n you have deposited money = "+ depo1 );
+						fw.write("\nacount id is "+id1);
+						fw.write("\nacount No  is "+accNo1);
+						fw.write("\n");
+						fw.write("----------------------------------------------------");
+						fw.write("\n");
+						fw.flush();
+						fw.close();
+
 					}
 
 				} else {
 					out.println("Invalid Credentials");
+					out.println("<a class='btn' href='Deposit.html'>Go back</a>");
+					
 				}
 			}
 		} catch (Exception e) {

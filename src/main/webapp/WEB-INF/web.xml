@@ -1,65 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>BankingSystem</display-name>
-  <welcome-file-list>
-    <welcome-file>home.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
-  
-   <servlet>
-  	<servlet-name>a</servlet-name>
-  	<servlet-class>loginSignup.Register</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-   <servlet-name>a</servlet-name>
-  <url-pattern>/register</url-pattern>
-  </servlet-mapping>
-  
-   <servlet>
-  	<servlet-name>b</servlet-name>
-  	<servlet-class>loginSignup.Login</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-   <servlet-name>b</servlet-name>
-  <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  
-   <servlet>
-  <servlet-name>d</servlet-name>
-  <servlet-class>loginSignup.depositOperation</servlet-class>
-  </servlet>
-  
-  
-  <servlet-mapping>
-  <servlet-name>d</servlet-name>
-  <url-pattern>/depositoperation</url-pattern>
-  </servlet-mapping>
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>BankingSystem</display-name>
+	<welcome-file-list>
+		<welcome-file>home.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
 
-   <servlet>
-  <servlet-name>d</servlet-name>
-  <servlet-class>loginSignup.balanceOperation</servlet-class>
-  </servlet>
-  
-  
-  <servlet-mapping>
-  <servlet-name>d</servlet-name>
-  <url-pattern>/balanceoperation</url-pattern>
-  </servlet-mapping>
-  
-  
-  
-  	<context-param>
+	<servlet>
+		<servlet-name>a</servlet-name>
+		<servlet-class>loginSignup.Register</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>a</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>b</servlet-name>
+		<servlet-class>loginSignup.Login</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>b</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>d</servlet-name>
+		<servlet-class>loginSignup.depositOperation</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>d</servlet-name>
+		<url-pattern>/depositoperation</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>e</servlet-name>
+		<servlet-class>loginSignup.balanceOperation</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>e</servlet-name>
+		<url-pattern>/balanceoperation</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>f</servlet-name>
+		<servlet-class>loginSignup.withDrawMoney</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>f</servlet-name>
+		<url-pattern>/withdrawmoney</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>abc</servlet-name>
+		<servlet-class>loginSignup.TransferOperation</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>abc</servlet-name>
+		<url-pattern>/transferoperation</url-pattern>
+	</servlet-mapping>
+
+
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/405.jsp</location>
+	</error-page>
+
+
+
+	<context-param>
 		<param-name>url</param-name>
 		<param-value>jdbc:mysql://localhost:3306/banking</param-value>
 	</context-param>
-	
+
 	<context-param>
 		<param-name>dname</param-name>
 		<param-value>root</param-value>
@@ -68,5 +105,5 @@
 		<param-name>dpass</param-name>
 		<param-value>root</param-value>
 	</context-param>
- 
+
 </web-app>
